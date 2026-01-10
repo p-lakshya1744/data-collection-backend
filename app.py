@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, jsonify
 from google_auth_oauthlib.flow import Flow
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
@@ -42,7 +42,10 @@ def oauth2callback():
     from fetch_purchases import fetch_purchase_emails
     result = fetch_purchase_emails()
 
-    return f"Auth successful. Result: {result}"
+    return jsonify({
+    "status": "success",
+    "data": result
+})
 
 if __name__ == "__main__":
     app.run()
