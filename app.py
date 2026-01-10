@@ -42,10 +42,7 @@ def oauth2callback():
     from fetch_purchases import fetch_purchase_emails
     result = fetch_purchase_emails()
 
-    return jsonify({
-    "status": "success",
-    "data": result
-})
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run()
