@@ -39,8 +39,8 @@ def oauth2callback():
     with open("token.json", "w") as f:
         f.write(creds.to_json())
 
-    from fetch_purchases import fetch_purchases
-    result = fetch_purchases()
+    from fetch_purchases import fetch_purchase_emails
+    result = fetch_purchase_emails()
 
     return f"Auth successful. Result: {result}"
 
