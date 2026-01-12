@@ -46,7 +46,7 @@ def fetch_purchase_emails():
     query = "category:purchases"
 
     results = service.users().messages().list(
-        userId="me", q=query, maxResults=150
+        userId="me", q=query, maxResults=100
     ).execute()
 
     messages = results.get("messages", [])
